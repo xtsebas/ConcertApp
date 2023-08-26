@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-data class user(val name: String, val lastName: String)
+public data class user(val name: String, val lastName: String)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnrememberedMutableState")

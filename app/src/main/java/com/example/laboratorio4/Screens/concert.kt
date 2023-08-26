@@ -41,32 +41,26 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun concert() {
-    Column(
+    LazyColumn(
         modifier = Modifier
-            .fillMaxSize() // Para que ocupe todo el espacio disponible
-            .padding(16.dp) // Añade espacio alrededor del contenido
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Text(text = "TODOS LOS EVENTOS", modifier = Modifier.padding(vertical = 8.dp))
-
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize() // Para que ocupe todo el espacio disponible
-        ) {
-            items(4) { index ->
-                val imageId = when (index) {
-                    0 -> R.drawable.wos
-                    1 -> R.drawable.molotov
-                    2 -> R.drawable.montaner
-                    else -> R.drawable.wos
-                }
-                val name = when (index) {
-                    0 -> "Wos"
-                    1 -> "Molotov"
-                    2 -> "Ricardo Montaner"
-                    else -> "Artista desconocido"
-                }
-                ConcertCard(imageId = imageId, artistName = name, place = "Majadas")
+        items(4) { index ->
+            val imageId = when (index) {
+                0 -> R.drawable.wos
+                1 -> R.drawable.molotov
+                2 -> R.drawable.montaner
+                else -> R.drawable.wos
             }
+            val name = when (index) {
+                0 -> "Wos"
+                1 -> "Molotov"
+                2 -> "Ricardo Montaner"
+                else -> "Artista desconocido"
+            }
+            ConcertCard(imageId = imageId, artistName = name, place = "Majadas")
         }
     }
 }
