@@ -30,8 +30,14 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+data class user(val name: String, val lastName: String)
 
-public data class user(val name: String, val lastName: String)
+object userlist {
+    val userList = mutableListOf<user>()
+    fun addUser(user: user) {
+        userList.add(user)
+    }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnrememberedMutableState")
@@ -59,6 +65,7 @@ fun login() {
         Button(
             onClick = {
                 val user = user(name = username, lastName = lastName)
+                userlist.addUser(user = user)
                 showMessage = true
             },
             modifier = Modifier.padding(top = 16.dp)
