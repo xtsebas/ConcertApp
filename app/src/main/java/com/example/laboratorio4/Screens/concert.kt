@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -80,17 +81,20 @@ fun concert() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.Blue)
+                    .background(Color(0xFF2196F3))
                     .padding(vertical = 16.dp)
             ) {
                 Text(
                     text = "Todos los eventos",
                     fontSize = 24.sp,
-                    color = Color.Black,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
                     modifier = Modifier.align(Alignment.Center)
                 )
             }
         }
+
         items(10) { index ->
             val imageId = when (index) {
                 0 -> R.drawable.wos

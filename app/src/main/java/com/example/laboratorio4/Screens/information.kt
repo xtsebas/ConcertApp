@@ -1,5 +1,8 @@
 package com.example.laboratorio4.Screens
 
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -29,6 +32,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.laboratorio4.R
 
+class MainActivity3 : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            information(concert = event(R.drawable.wos, "Wos", "Majadas"))
+        }
+    }
+}
 
 @Composable
 fun information(concert: event){
