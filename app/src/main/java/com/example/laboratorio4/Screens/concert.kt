@@ -70,7 +70,6 @@ class ConcertList private constructor() {
 @Preview(showBackground = true)
 @Composable
 fun concert() {
-    val scrollState = rememberScrollState()
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

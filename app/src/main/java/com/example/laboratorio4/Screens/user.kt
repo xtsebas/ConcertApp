@@ -4,6 +4,7 @@ import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,6 +19,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -37,6 +39,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -96,11 +100,40 @@ fun User(){
             )
         }
         item{
-            ProfileMenuItem("Edit Profile")
-            ProfileMenuItem("Reset Password")
+            Row() {
+                Image(painter = painterResource(id = R.drawable.iconuser), contentDescription = "user",
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .width(22.dp)
+                        .height(22.dp))
+                ProfileMenuItem("Edit Profile")
+            }
+            Row() {
+                Image(painter = painterResource(id = R.drawable.lock), contentDescription = "lock",
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .width(22.dp)
+                        .height(22.dp))
+                ProfileMenuItem("Reset Password")
+            }
             Spacer(modifier = Modifier.height(20.dp))
-            ProfileMenuItem("Notification")
-            ProfileMenuItem("Favorites")
+            Row() {
+                Image(painter = painterResource(id = R.drawable.notifications), contentDescription = "user",
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .width(22.dp)
+                        .height(22.dp))
+                ProfileMenuItem("Notification")
+
+            }
+            Row() {
+                Image(painter = painterResource(id = R.drawable.iconuser), contentDescription = "user",
+                    modifier = Modifier
+                        .padding(10.dp)
+                        .width(22.dp)
+                        .height(22.dp))
+                ProfileMenuItem("Favorites")
+            }
         }
     }
 }
