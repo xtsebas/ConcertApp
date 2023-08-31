@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -78,9 +79,36 @@ fun information(concert: event){
                         color = Color.Gray
                     )
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(25.dp))
+
+                Box( modifier = Modifier
+                    .fillMaxWidth()
+                    .height(64.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                    contentAlignment = Alignment.CenterStart){
+                    Row(
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Image(painter = painterResource(id = R.drawable.calendar),
+                            contentDescription = "Calendar" )
+                        Text(text = "Fecha")
+
+                        Image(painter = painterResource(id = R.drawable.watch),
+                            contentDescription = "reloj" )
+                        Text(text = "Hora")
+                    }
+
+                }
+
+                Text(text = "About",
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        fontWeight= FontWeight.Bold,
+                        color = Color.Black
+                    ))
                 Text(
-                    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+                    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis nunc vitae eleifend iaculis. Maecenas ornare arcu erat, a tincidunt erat egestas eu. Aenean pretium lacinia ultrices. Donec eu aliquam tellus, eu consequat ante. Duis vehicula pretium lorem id condimentum. Sed nec erat id libero laoreet malesuada id eget justo. Quisque pulvinar a metus et tincidunt. Suspendisse vel iaculis sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus feugiat tempor rutrum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam a ultricies dui, a condimentum tortor. Suspendisse rhoncus eros vitae lectus euismod pulvinar. Pellentesque ultricies purus quis metus vestibulum, et sagittis purus tempor.",
                     style = TextStyle(
                         fontSize = 14.sp,
                         color = Color.Black

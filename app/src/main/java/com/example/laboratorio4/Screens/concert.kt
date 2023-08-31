@@ -95,17 +95,19 @@ fun concert() {
             }
         }
 
-        items(10) { index ->
+        items(4) { index ->
             val imageId = when (index) {
                 0 -> R.drawable.wos
                 1 -> R.drawable.molotov
                 2 -> R.drawable.montaner
+                3 -> R.drawable.young
                 else -> R.drawable.wos
             }
             val name = when (index) {
                 0 -> "Wos"
                 1 -> "Molotov"
                 2 -> "Ricardo Montaner"
+                3 -> "Young Miko"
                 else -> "Artista desconocido"
             }
             val concert = event(imageId = imageId, artistName = name, place = "Majadas")
@@ -124,12 +126,14 @@ fun addConcert(): List<event> {
             0 -> R.drawable.wos
             1 -> R.drawable.molotov
             2 -> R.drawable.montaner
+            3 -> R.drawable.young
             else -> R.drawable.wos
         }
         val name = when (i) {
             0 -> "Wos"
             1 -> "Molotov"
             2 -> "Ricardo Montaner"
+            3-> "Young Miko"
             else -> "Artista desconocido"
         }
         val concert = event(imageId = imageId, artistName = name, place = "Majadas")
