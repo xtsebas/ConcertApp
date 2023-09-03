@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
@@ -81,25 +82,49 @@ fun information(concert: event){
                 )
                 Spacer(modifier = Modifier.height(25.dp))
 
-                Box( modifier = Modifier
-                    .fillMaxWidth()
-                    .height(64.dp)
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-                    contentAlignment = Alignment.CenterStart){
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        Image(painter = painterResource(id = R.drawable.calendar),
-                            contentDescription = "Calendar" )
-                        Text(text = "Fecha")
-
-                        Image(painter = painterResource(id = R.drawable.watch),
-                            contentDescription = "reloj" )
-                        Text(text = "Hora")
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(64.dp)
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                    contentAlignment = Alignment.CenterStart,
+                    content = {
+                        Row(
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.padding(8.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.calendar),
+                                    contentDescription = "Calendar",
+                                    modifier = Modifier
+                                        .size(32.dp)
+                                        .padding(8.dp)
+                                )
+                            }
+                            Text(text = "Fecha", color = Color.Black)
+                            Spacer(modifier = Modifier.width(16.dp)) // Espacio entre los elementos
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.padding(8.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.watch),
+                                    contentDescription = "reloj",
+                                    modifier = Modifier
+                                        .size(32.dp)
+                                        .padding(8.dp)
+                                )
+                            }
+                            Text(text = "Hora", color = Color.Black)
+                        }
                     }
+                )
 
-                }
 
                 Text(text = "About",
                     style = TextStyle(

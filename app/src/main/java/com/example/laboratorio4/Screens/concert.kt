@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -82,6 +83,7 @@ fun concert() {
                     .fillMaxWidth()
                     .background(Color(0xFF2196F3))
                     .padding(vertical = 16.dp)
+                    .fillMaxSize()
             ) {
                 Text(
                     text = "Todos los eventos",
@@ -93,26 +95,26 @@ fun concert() {
                 )
             }
         }
-
+        val conciertos: MutableList<event> = mutableListOf();
         items(4) { index ->
-            val imageId = when (index) {
-                0 -> R.drawable.wos
-                1 -> R.drawable.molotov
-                2 -> R.drawable.montaner
-                3 -> R.drawable.young
-                else -> R.drawable.wos
-            }
-            val name = when (index) {
-                0 -> "Wos"
-                1 -> "Molotov"
-                2 -> "Ricardo Montaner"
-                3 -> "Young Miko"
-                else -> "Artista desconocido"
-            }
-            val concert = event(imageId = imageId, artistName = name, place = "Majadas")
-            val concertlist = ConcertList.getInstance()
-            concertlist.addConcert(concert)
-            ConcertCard(event = concert)
+                val imageId = when (index) {
+                    0 -> R.drawable.wos
+                    1 -> R.drawable.molotov
+                    2 -> R.drawable.montaner
+                    3 -> R.drawable.young
+                    else -> R.drawable.wos
+                }
+                val name = when (index) {
+                    0 -> "Wos"
+                    1 -> "Molotov"
+                    2 -> "Ricardo Montaner"
+                    3 -> "Young Miko"
+                    else -> "Artista desconocido"
+                }
+                val concert = event(imageId = imageId, artistName = name, place = "Majadas")
+                val concertlist = ConcertList.getInstance()
+                concertlist.addConcert(concert)
+                ConcertCard(event = concert)
         }
     }
 }

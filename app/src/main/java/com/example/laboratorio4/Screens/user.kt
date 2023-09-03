@@ -74,23 +74,47 @@ fun User(){
 
     ){
         item {
-            Spacer(modifier = Modifier.height(80.dp))
             Box(
                 modifier = Modifier
-                    .size(182.dp)
-                    .background(Color.Gray, shape = CircleShape)
-                    .fillMaxHeight(),
-                contentAlignment = Alignment.Center,
+                    .fillMaxWidth()
+                    .height(300.dp)
             ) {
-                Text(
-                    text = users[0].name.first().toString(),
-                    color = Color.White,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 70.sp
+                Image(
+                    painter = painterResource(id = R.drawable.fondo),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
                 )
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(182.dp)
+                            .background(Color.Gray, shape = CircleShape)
+                            .fillMaxHeight(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = users[0].name.first().toString(),
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 70.sp
+                        )
+                    }
+                }
             }
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = users[0].name + " " + users[0].lastName, fontSize = 20.sp)
+
+            Text(
+                text = users[0].name + " " + users[0].lastName,
+                fontSize = 20.sp,
+                color = Color.Black
+            )
             Divider(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -99,6 +123,7 @@ fun User(){
                 thickness = 1.dp
             )
         }
+
         item{
             Row() {
                 Image(painter = painterResource(id = R.drawable.iconuser), contentDescription = "user",
@@ -118,7 +143,7 @@ fun User(){
             }
             Spacer(modifier = Modifier.height(20.dp))
             Row() {
-                Image(painter = painterResource(id = R.drawable.notifications), contentDescription = "user",
+                Image(painter = painterResource(id = R.drawable.notification), contentDescription = "user",
                     modifier = Modifier
                         .padding(10.dp)
                         .width(22.dp)
@@ -127,7 +152,7 @@ fun User(){
 
             }
             Row() {
-                Image(painter = painterResource(id = R.drawable.iconuser), contentDescription = "user",
+                Image(painter = painterResource(id = R.drawable.favorite), contentDescription = "user",
                     modifier = Modifier
                         .padding(10.dp)
                         .width(22.dp)

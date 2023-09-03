@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -41,6 +42,21 @@ class MainActivity2 : ComponentActivity() {
 fun Concerts(){
     val conciertos = addConcert()
     Column() {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.Black)
+                .padding(vertical = 16.dp)
+        ) {
+            Text(
+                text = "Lista de los eventos",
+                fontSize = 24.sp,
+                color = Color.White,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }
         ListWithColumn(items = conciertos)
     }
 }
