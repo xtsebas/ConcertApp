@@ -118,7 +118,7 @@ fun User(){
             Divider(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 8.dp),
+                    .padding(top = 10.dp),
                 color = Color.Gray,
                 thickness = 1.dp
             )
