@@ -1,4 +1,4 @@
-package com.example.laboratorio4.Screens
+package com.example.laboratorio4.UIview.Concerts
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
