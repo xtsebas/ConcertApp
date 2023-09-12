@@ -28,17 +28,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.laboratorio4.R
-
-
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            concert()
-        }
-    }
-}
 
 class ConcertList private constructor() {
     private val list= mutableListOf<event>()
@@ -61,9 +52,8 @@ class ConcertList private constructor() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun concert() {
+fun concert(navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -107,7 +97,7 @@ fun concert() {
                 val concert = event(imageId = imageId, artistName = name, place = "Majadas")
                 val concertlist = ConcertList.getInstance()
                 concertlist.addConcert(concert)
-                ConcertCard(event = concert)
+                ConcertCard(event = concert, navController = navController)
         }
     }
 }
@@ -139,7 +129,7 @@ fun addConcert(): List<event> {
 public data class event(val imageId: Int, val artistName: String, val place: String)
 
 @Composable
-fun event.toConcertCard() {
+fun event.toConcertCard(navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -169,6 +159,6 @@ fun event.toConcertCard() {
 }
 
 @Composable
-fun ConcertCard(event: event) {
-    event.toConcertCard()
+fun ConcertCard(event: event, navController: NavController) {
+    event.toConcertCard(navController)
 }

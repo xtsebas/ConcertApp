@@ -33,21 +33,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.laboratorio4.R
 
-class MainActivity4 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            User()
-        }
-    }
-}
-
 val first= user("Sebastian", "huertas")
-@Preview(showBackground = true)
 @Composable
-fun User(){
+fun User(navController: NavController){
     userlist.addUser(first)
     val users= userlist.userList
     LazyColumn(

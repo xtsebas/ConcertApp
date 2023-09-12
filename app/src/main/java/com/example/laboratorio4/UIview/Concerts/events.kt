@@ -27,19 +27,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
-class MainActivity2 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            Concerts()
-        }
-    }
-}
-
-@Preview(showBackground = true)
 @Composable
-fun Concerts(){
+fun Events(navController: NavController){
     val conciertos = addConcert()
     Column() {
         Box(
