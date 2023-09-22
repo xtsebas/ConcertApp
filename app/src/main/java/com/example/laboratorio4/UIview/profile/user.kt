@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+//import androidx.navigation.NavController
 import com.example.laboratorio4.R
 
 val first= user("Sebastian", "huertas")
@@ -76,7 +77,7 @@ fun User(navController: NavController){
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = users[0].name.first().toString(),
+                            text ="S", //users[0].name.first().toString(),
                             color = Color.White,
                             fontWeight = FontWeight.Bold,
                             fontSize = 70.sp

@@ -1,6 +1,7 @@
 package com.example.laboratorio4.UIview.Detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -17,7 +18,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,25 +35,42 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+//import androidx.navigation.NavController
 import com.example.laboratorio4.R
 import com.example.laboratorio4.UIview.Concerts.event
 
 @Composable
 fun information(concert: event, navController: NavController){
+    Log.d("HOLA", "LLeGO a informacion")
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
     ) {
         item {
-            val concertImage: Painter = painterResource(id = concert.imageId)
-            Image(
-                painter = concertImage,
-                contentDescription = "Concierto",
+            Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16f / 20f)
-            )
+            ) {
+                IconButton(
+                    onClick = { navController.popBackStack() }, // Botón de retorno
+                    modifier = Modifier.align(Alignment.Start)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+
+                val concertImage: Painter = painterResource(id = concert.imageId)
+                Image(
+                    painter = concertImage,
+                    contentDescription = "Concierto",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16f / 20f)
+                )
+            }
         }
         item {
             Column(

@@ -18,13 +18,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.laboratorio4.Navigation.Navigation
-
+import com.example.laboratorio4.Navigation.Screens
+import com.example.laboratorio4.UIview.Concerts.concert
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Navigation();
+            Navigation()
         }
     }
 }
@@ -39,9 +41,8 @@ object userlist {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnrememberedMutableState")
-@Preview(showBackground = true)
 @Composable
-fun login() {
+fun login(navController: NavController) {
     var username by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var showMessage = false
@@ -65,6 +66,7 @@ fun login() {
                 val user = user(name = username, lastName = lastName)
                 userlist.addUser(user = user)
                 showMessage = true
+                navController.navigate(Screens.tabs.route);
             },
             modifier = Modifier.padding(top = 16.dp)
         ) {

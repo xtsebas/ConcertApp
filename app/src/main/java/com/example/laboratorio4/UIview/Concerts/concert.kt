@@ -2,9 +2,9 @@ package com.example.laboratorio4.UIview.Concerts
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -25,11 +26,11 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.laboratorio4.R
+import com.example.laboratorio4.Navigation.Screens
+import com.example.my.R
 
 class ConcertList private constructor() {
     private val list= mutableListOf<event>()
@@ -80,24 +81,24 @@ fun concert(navController: NavController) {
         }
         val conciertos: MutableList<event> = mutableListOf();
         items(4) { index ->
-                val imageId = when (index) {
-                    0 -> R.drawable.wos
-                    1 -> R.drawable.molotov
-                    2 -> R.drawable.montaner
-                    3 -> R.drawable.young
-                    else -> R.drawable.wos
-                }
-                val name = when (index) {
-                    0 -> "Wos"
-                    1 -> "Molotov"
-                    2 -> "Ricardo Montaner"
-                    3 -> "Young Miko"
-                    else -> "Artista desconocido"
-                }
-                val concert = event(imageId = imageId, artistName = name, place = "Majadas")
-                val concertlist = ConcertList.getInstance()
-                concertlist.addConcert(concert)
-                ConcertCard(event = concert, navController = navController)
+            val imageId = when (index) {
+                0 -> R.drawable.wos
+                1 -> R.drawable.molotov
+                2 -> R.drawable.montaner
+                3 -> R.drawable.young
+                else -> R.drawable.wos
+            }
+            val name = when (index) {
+                0 -> "Wos"
+                1 -> "Molotov"
+                2 -> "Ricardo Montaner"
+                3 -> "Young Miko"
+                else -> "Artista desconocido"
+            }
+            val concert = event(imageId = imageId, artistName = name, place = "Majadas")
+            val concertlist = ConcertList.getInstance()
+            concertlist.addConcert(concert)
+            ConcertCard(event = concert, navController = navController)
         }
     }
 }
@@ -134,6 +135,9 @@ fun event.toConcertCard(navController: NavController) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp)
+            .clickable {
+                navController.navigate(Screens.information.route);
+            }
     ) {
         Column(
             modifier = Modifier.padding(16.dp)

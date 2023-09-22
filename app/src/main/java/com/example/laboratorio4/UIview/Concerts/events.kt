@@ -29,6 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+//import androidx.navigation.NavController
+
 @Composable
 fun Events(navController: NavController){
     val conciertos = addConcert()
