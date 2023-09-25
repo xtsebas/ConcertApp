@@ -12,6 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.navigation.NavController
+import com.example.laboratorio4.UIview.Concerts.Events
+import com.example.laboratorio4.UIview.Concerts.concert
+import com.example.laboratorio4.UIview.profile.User
 import com.example.my.R
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -23,7 +27,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun PrincipalTabs(){
+fun PrincipalTabs(navController: NavController){
     val tabs = listOf(
         Tabs_screens.Tab_concert,
         Tabs_screens.Tab_events,
@@ -32,7 +36,7 @@ fun PrincipalTabs(){
     val pagerState = rememberPagerState()
     Column() {
         Tabs(tabs, pagerState)
-        Tabs_content(tabs, pagerState)
+        Tabs_content(tabs, pagerState, navController)
 
     }
 }
@@ -68,12 +72,20 @@ fun Tabs(tabs:List<Tabs_screens>, pagerState: PagerState){
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun Tabs_content(tabs:List<Tabs_screens>, pagerState: PagerState){
+fun Tabs_content(tabs:List<Tabs_screens>, pagerState: PagerState, navController: NavController){
     HorizontalPager(
         state = pagerState,
         count = tabs.size)
     {
             page ->
-        tabs[page].screen()
+        if (tabs[page].title == "Conciertos"){
+            concert(navController = navController)
+        }
+        if (tabs[page].title == "Eventos"){
+            Events()
+        }
+        if (tabs[page].title == "Usuario"){
+            User(navController = navController)
+        }
     }
 }

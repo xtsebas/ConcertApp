@@ -32,7 +32,7 @@ import androidx.navigation.NavController
 //import androidx.navigation.NavController
 
 @Composable
-fun Events(navController: NavController){
+fun Events(){
     val conciertos = addConcert()
     Column() {
         Box(
